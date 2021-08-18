@@ -17,3 +17,19 @@
 * create-react-app : React 기반의 프론트 프로젝트를 작성할 때 사용하는 plugin
 * yarn : React project를 만들어서 개발을 할 때 npm을 대신하여 사용하는
 package 관리자
+
+## noejs 프로젝트 생성하기
+1. 매우 고전적인 방법
+    >mkdir 프로젝트명
+    >cd 프로젝트명
+    >npm init -y
+
+2. express-generator를 이용하여 백앤드 프로젝트 만드는 방법
+    >express 프로젝트명
+    >cd 프로젝트명
+    >npm install
+
+3. create-react-app 을 이용한 React 프론트앤드 프로젝트 만드는 방법
+    >create-react-app 프로젝트
+    >cd 프로젝트
+    >yarn
