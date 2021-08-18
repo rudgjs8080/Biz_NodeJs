@@ -15,3 +15,5 @@
 확인할 수 있도록 도와주는 plugin
 * express-generator : nodejs + express 프레임워크 서버 어플리케이션을 작성할 때 사용하는 plug
 * create-react-app : React 기반의 프론트 프로젝트를 작성할 때 사용하는 plugin
+* yarn : React project를 만들어서 개발을 할 때 npm을 대신하여 사용하는
+package 관리자
