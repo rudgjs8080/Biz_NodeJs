@@ -2,8 +2,10 @@
 
 ## mysql 프로젝트에서 필요한 dependency
 npm install mysql2
-npm install sequlize
+npm install sequelize
 npm install moment
+
+## dependency upgrade
 npm install cookie-parser
 npm install debug
 npm install ejs
