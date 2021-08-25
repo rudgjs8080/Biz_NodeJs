@@ -35,6 +35,11 @@
     <script src="/summernote-0.8.18-dist/summernote-bs4.min.js"></script>
     <script src="/summernote-0.8.18-dist/lang/summernote-ko-KR.min.js"></script>
     <title>Document</title>
+    <style>
+      div.text_box{
+        display: flex;
+      }
+    </style>
   </head>
   <body>
     <section>
@@ -55,7 +60,7 @@
           <label for="">제목</label>
           <input name="b_subject" id="b_subject" value="<%- BBS.b_subject %>" />
         </div>
-        <div>
+        <div class="text_box">
           <label for="">내용</label>
           <textarea id="b_text" name="b_text"><%- BBS.b_text %></textarea>
         </div>
@@ -65,12 +70,6 @@
       </form>
     </section>
   </body>
-  <script>
-    $("#b_text").summernote({
-      lang: "ko-KR",
-      placeholder: "본문을 입력하세요",
-      width: "60%",
-      height: "300px",
-    });
+  <script src="/js/write.js"></script>
   </script>
 </html>
