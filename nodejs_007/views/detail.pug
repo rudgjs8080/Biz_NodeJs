@@ -54,10 +54,10 @@ block content
 			span.data= BBS.b_time
 		div
 			span.title 제목
-			span.data= BBS.b_subject
+			span.data #{BBS.b_subject}
 		div
 			span.title 내용
-			span.data= BBS.b_text
+			span.data !{BBS.b_text}
 		div.btn_box
 			button.btn_home 홈으로
 			button.btn_update 수정

@@ -23,3 +23,5 @@ alter user 'node'
 identified with mysql_native_password
 by '12341234';
 flush privileges;
+
+select * from tbl_bbs;
