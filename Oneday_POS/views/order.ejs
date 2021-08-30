@@ -1,5 +1,52 @@
 <% include layout.ejs %>
 <body>
-	<h1>order</h1>
+	<h1>테이블 no : <%= o_tid %></h1>
+	<form method="POST">
+		<table>
+			<tr>
+				<th>음식코드</th>
+				<th>가격</th>
+				<th>수량</th>
+			</tr>
+			<% ORDER.forEach((vo,index)=>{ %>
+				<tr data-id="<%- vo.p_code %>">
+				  <td><%- vo.p_code %></td>
+				  <td><%- vo.p_price %></td>
+				</tr>
+				<% }) %>
+		</table>
+	</form>
+	<section>
+		<table>
+			<tr>
+				<th>음식명</th>
+				<th>가격</th>
+			</tr>
+			<% PRODUCT.forEach((vo,index)=>{ %>
+				<tr class="menu" method="POST" data-id="<%- vo.p_code %>">
+				  <td><%- vo.p_name %></td>
+				  <td><%- vo.p_price %></td>
+				  <td style="visibility:hidden"><%- vo.p_code %></td>
+				</tr>
+				<% }) %>
+		</table>
+	</section>
 </body>
+<script>
+	const o_tid = document.location.href.split("?")
+	
+	document.querySelector("tr.menu").addEventListener("click", (e) => {
+		const td = e.target
+		const tr = td.closest("TR")
+		const p_code = tr.dataset.id
+		const p_price = td.innerText
+		alert(p_price)
+		alert(p_code)
+		
+
+		console.log('p_code', p_code)
+		document.location.href = `/order/table?o_tid=${o_tid}&p_price=${p_price}&p_code=${p_code}`
+	})
+	
+</script>
 </html>

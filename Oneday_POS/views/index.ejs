@@ -21,9 +21,9 @@
 	  .addEventListener("click", (e) =>{
 		  const div = e.target
 		  const text = div.innerText
-		  alert(text)
+		  
 		  if(div.tagName === "DIV") {
-			  document.location.href = "/order/t_id=" + text;
+			  document.location.href = "/order/table?o_tid=" + text;
 		  }
 	  })
 

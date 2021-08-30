@@ -5,7 +5,7 @@ const {tbl_table} = require('../models/index')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 module.exports = router;

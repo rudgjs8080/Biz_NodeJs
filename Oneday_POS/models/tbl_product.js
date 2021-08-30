@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 	const product = sequelize.define('tbl_product', {
 		p_code: {
-			type: DataTypes.STRING(10),
+			type: DataTypes.STRING(5),
 			primaryKey: true
 		},
 		p_name: {
@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING(255)
 		},
 	}, {timestamps: false})
-	
+	product.associate = (models) => {
+		product.hasMany(models.tbl_order, { foreignKey: "o_pcode" });
+	  };
 	return product;
 
 }

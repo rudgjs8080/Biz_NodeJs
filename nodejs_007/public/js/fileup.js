@@ -6,6 +6,7 @@ const fileupfetch = (files) => {
   const formData = new FormData();
 
   // 2. 생성된 formData 객체에
+  
   // 	upFile 이라는 변수를 생성하면서
   // 	summernote로 부터 받은 파일들 중
   //	첫번째 파일에 대한 정보를 저장한다

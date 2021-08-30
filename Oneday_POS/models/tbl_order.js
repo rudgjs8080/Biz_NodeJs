@@ -1,5 +1,3 @@
-const tbl_reply = require("../../nodejs_007/models/tbl_reply")
-
 module.exports = (sequelize, DataTypes) => {
 	const order = sequelize.define("tbl_order", {
 		o_seq: {
@@ -11,24 +9,29 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING(10),
 			allowNull: false
 		},
-		o_date: {
-			type: DataTypes.STRING(10),
-			allowNull: false
-		},
-		o_time: {
-			type: DataTypes.STRING(10),
-			allowNull: false
-		},
-		o_pcode: {
-			type: DataTypes.STRING(10),
-			allowNull: false
-		},
 		o_price: {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
+		o_count: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			// defaultValue: 0
+		},
+		o_total: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},
+		o_payment: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false
+		}
 	})
-	
+	order.associate = (models) => {
+		order.belongsTo(models.tbl_product);
+	  };	
+
 	
 	return order
 }
