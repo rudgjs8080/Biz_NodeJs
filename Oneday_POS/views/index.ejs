@@ -1,0 +1,32 @@
+<% include layout.ejs %>
+
+  <body>
+    <section class="main_section">
+		<div class="table">1</div>
+		<div class="table">2</div>
+		<div class="table">3</div>
+		<div class="table">4</div>
+		<div class="table">5</div>
+		<div class="table">6</div>
+		<div class="table">7</div>
+		<div class="table">8</div>
+		<div class="table">9</div>
+		<div class="table">10</div>
+		<div class="table">11</div>
+		<div class="table">12</div>
+	</section>
+  </body>
+  <script>
+	  document.querySelector("section.main_section")
+	  .addEventListener("click", (e) =>{
+		  const div = e.target
+		  const text = div.innerText
+		  alert(text)
+		  if(div.tagName === "DIV") {
+			  document.location.href = "/order/t_id=" + text;
+		  }
+	  })
+
+  </script>
+
+</html>

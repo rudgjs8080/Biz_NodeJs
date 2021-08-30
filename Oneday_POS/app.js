@@ -3,14 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var app = express();
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const dragRouter = require('./routes/drag')
-const dragRouter1 = require('./routes/drag1')
+const posRouter = require('./routes/posRouter')
 
 
-var app = express();
+const sequelize = require("./models/index").sequelize;
+// tbl_~~.js 등에 설정된 정보를 기준으로 table이 없으면 table을 자동으로 생성해준다
+sequelize.sync();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/drag', dragRouter)
-app.use('/drag1', dragRouter1)
+app.use('/order', posRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

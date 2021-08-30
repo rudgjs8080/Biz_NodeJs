@@ -11,7 +11,7 @@ const {tbl_bbs} = require('../models/index')
 router.get('/', function(req, res, next) {
   tbl_bbs.findAndCountAll()
   .then(result =>{
-    console.log('test',result)
+    // console.log('test',result)
     res.render('index',{BBS: result.rows});
   });
 });

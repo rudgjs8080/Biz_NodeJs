@@ -25,3 +25,4 @@ by '12341234';
 flush privileges;
 
 select * from tbl_bbs;
+select * from tbl_replies;

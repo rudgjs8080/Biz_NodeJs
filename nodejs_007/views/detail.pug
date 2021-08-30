@@ -85,7 +85,7 @@ block content
 				url += `bbs/update?b_id=#{BBS.b_id}`
 			} else if(className.includes("btn_delete")){
 				if(confirm("본문을 삭제합니다")){
-					url += `bbs/delete	?b_id=#{BBS.b_id}`
+					url += `bbs/delete?b_id=#{BBS.b_id}`
 				} else {
 					return false;
 				}
