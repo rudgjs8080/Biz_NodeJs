@@ -1,16 +1,22 @@
 create database posDB;
 
 use posdb;
+show tables;
+desc tbl_products;
 
 drop table tbl_products;
 drop table tbl_orders;
 
 select * from tbl_products;
-select * from tbl_orders;
+select * from tbl_table_orders;
 
-insert into tbl_products values('p0001','김밥',2000,'상세설명 : 김밥');
-insert into tbl_products values('p0002','라면',3000,'상세설명 : 라면');
-insert into tbl_products values('p0003','돈까스',5000,'상세설명 : 돈까스');
-insert into tbl_products values('p0004','소주',3000,'상세설명 : 소주');
-insert into tbl_products values('p0005','맥주',3000,'상세설명 : 맥주');
+insert into tbl_products (p_code, p_name, p_price) values
+('P0001', '김밥', 1000),
+('P0002', '라면', 2000),
+('P0003', '돈까스', 5000),
+('P0004', '쫄면', 3000),
+('P0005', '소주', 3000),
+('P0006', '맥주', 3000),
+('P0007', '음료수', 1000)
+
 
