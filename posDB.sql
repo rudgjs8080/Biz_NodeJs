@@ -5,7 +5,7 @@ show tables;
 desc tbl_products;
 
 drop table tbl_products;
-drop table tbl_orders;
+drop table tbl_table_orders;
 
 select * from tbl_products;
 select * from tbl_table_orders;
