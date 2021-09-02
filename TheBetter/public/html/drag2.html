@@ -25,43 +25,48 @@
 		<div class="container">
 			<div class="box"></div>
 			
+			
 		</div>
 </section>
 	
 </body>
 <script>
+
+// Ex-7 MouseEvent Position	
+window.addEventListener("load", () => {
+	const section = document.querySelector("#section8")
+	const container = section.querySelector(".container")
+	const box = document.querySelector(".box") // 제일 먼저 검색된 box 1개만 선택
+	let dragging = false;
+	let offset = {x:0, y:0}
+	let current = null // 지금 선택된 것 (null)
 	
-	// Ex-7 MouseEvent Position	
-	window.addEventListener("load", () => {
-		const section = document.querySelector("#section8")
-		const container = section.querySelector(".container")
-		const box = section.querySelector(".box")
-		let dragging = false;
-		let offset = {x:0, y:0}
-		let current = null
-		let select_box = document.querySelector(".box")
-		container.onmousedown = (e) => {
-			if(e.target.classList.contains("box")){
-				select_box = document.createElement('div')
-				select_box.classList.add('box')
-				dragging = true;
-				current = e.target
-				offset.x = e.offsetX 
-				offset.y = e.offsetY
-			}
+
+	box.onmousedown = (e) => { // onmousedown -> mouse 버튼을 누를 때 실행
+		let newNode = null
+		if(e.target.classList.contains("box")){ // 선택된 요소의 class가 box인지
+			dragging = true;
+			newNode = box.cloneNode()
+			current = e.target // 지금 선택된 것 즉 이동할 대상
+			
+			offset.x = e.offsetX // offset 값을 구해서
+			offset.y = e.offsetY
 			
 		}
-		
-		container.onmousemove = (e) => {
-			if(dragging){
-				current.style.left = e.pageX-offset.x+"px"; // 단위를 써주지 않아서 움직이지 않는다
-				current.style.top = e.pageY-offset.y+"px";
-			}
+	}
+	
+	box.onmousemove = (e) => {
+		if(dragging){
+			current.style.left = e.pageX-offset.x+"px"; // 단위를 써주지 않아서 움직이지 않는다
+			current.style.top = e.pageY-offset.y+"px";
+			// offset 값을 빼줌으로써 선택된 마우스 커서를 기준으로
+			// 선택한 요소를 움직일 수 있게 한다
 		}
-		container.onmouseup = (e) => {
-			dragging = false;
-		}
-		
-	})
+	}
+	box.onmouseup = (e) => { // onmouseup -> mouse 버튼을 땔 때 실행
+		dragging = false;
+	}
+	
+})
 </script>
 </html>
