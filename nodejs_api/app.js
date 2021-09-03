@@ -4,17 +4,35 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// mongoose를 사용한 mongoDB 연결설정
+const mongoose = require('mongoose')
+const mongoLocalURL = 'mongodb://localhost:27017'
+const mongoAtlasURL = 
+'mongodb+srv://key:12341234@cluster0.zckdw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+// connection 객체를 변수에 임시저장
+const dbConn = mongoose.connection
+// mongoDB에 연결이 (최초에) 성공하면 호출되는 함수
+dbConn.once('open', () =>{
+	console.log('mongoDB OK')
+})
+dbConn.on('error', () => {
+	console.err;
+})
+// mongoose.connect(`${mongoAtlasURL}`)
+mongoose.connect(`${mongoLocalURL}`)
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const dragRouter = require('./routes/drag')
-const dragRouter1 = require('./routes/drag1')
+const apiRouter = require('./routes/apiRouter');
+const bbsRouter = require('./routes/bbsRouter')
 
+const { db } = require('./models/tbl_bbs');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,8 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/drag', dragRouter)
-app.use('/drag1', dragRouter1)
+app.use('/api', apiRouter)
+app.use('/bbs', bbsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

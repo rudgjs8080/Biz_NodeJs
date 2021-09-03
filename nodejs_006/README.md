@@ -1,6 +1,5 @@
 ## nodejs + express project 생성후 dependency 할일 들
 
-
 1. dependency upgrade
 npm install cookie-parser
 npm install debug
