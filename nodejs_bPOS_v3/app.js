@@ -33,6 +33,11 @@ app.use('/users', usersRouter);
 // import된 router를 requestmapping 하기
 app.use('/pos', posRouter)
 
+// port를 listen해서 server에 저장?
+const server = app.listen(app.get('port'), () => {
+	console.log(app.get('port'), '번 포트에서 대기중');
+  });
+  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

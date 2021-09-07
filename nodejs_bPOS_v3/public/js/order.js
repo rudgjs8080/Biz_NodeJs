@@ -1,4 +1,4 @@
-// fetch를 통해서 되돌려 받은 주문리스트를 왼쪽으 주문리스트에 표현하기
+// fetch를 통해서 되돌려 받은 주문리스트를 왼쪽 주문리스트에 표현하기
 const total_pay = {};
 
 const add_order_list = (order_list) => {

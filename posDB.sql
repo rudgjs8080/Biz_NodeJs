@@ -17,7 +17,7 @@ insert into tbl_products (p_code, p_name, p_price) values
 ('P0004', '쫄면', 3000),
 ('P0005', '소주', 3000),
 ('P0006', '맥주', 3000),
-('P0007', '음료수', 1000)
+('P0007', '음료수', 1000);
 
 select to_table_id, count(to_table_id)
 
