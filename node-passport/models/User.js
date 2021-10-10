@@ -1,3 +1,4 @@
+// MongoDB에 user data를 넣을 schema
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({

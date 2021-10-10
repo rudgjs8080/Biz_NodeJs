@@ -40,7 +40,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
     password: req.user.password,
   });
 });
-
 /**
  * 클라이언트에서 서버로 데이터를 전송하는 방법
  * queryString : 주소창에 ?변수1=값&변수2=값 과 같은 형식으로 전송
@@ -59,12 +58,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 router.post("/join", (req, res) => {
   console.log(req.body);
   const { userid, password, email } = req.body;
-  console.log("userid", userid);
-  console.log("password", password);
-  console.log("email", email);
-
   const userVO = new User(req.body);
-
   userVO.save((err, data) => {
     res.json(data);
   });
